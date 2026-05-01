@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Programa friendly del Workshop DeepBio 2026" />
+  <title>DeepBio 2026 · Programa friendly</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;650;750;850;950&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="assets/config.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#programa">Saltar al programa</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio" aria-label="DeepBio Workshop 2026">
+        <span class="logo-mark" aria-hidden="true">DB</span>
+        <span>
+          <strong>DeepBio</strong>
+          <small>Workshop 2026</small>
+        </span>
+      </a>
+      <nav class="top-links" aria-label="Navegación principal">
+        <a href="#programa">Programa</a>
+        <a href="#como-editar">Editar</a>
+        <a id="sourceLink" href="https://grupogea.unex.es/deepbio2026/index.php">Web oficial</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="wrap hero">
+      <div class="hero-copy">
+        <p class="eyebrow" id="eventKicker">Centro Universitario de Mérida · 8 de mayo de 2026</p>
+        <h1 id="siteTitle">Programa friendly para DeepBio 2026</h1>
+        <p class="lead" id="siteDescription">
+          Una vista más clara del horario: buscador, filtros, navegación por bloques y datos editables desde CSV o Google Sheets.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#programa">Ver programa</a>
+          <a class="button ghost" href="#como-editar">Cómo editarlo</a>
+        </div>
+      </div>
+      <aside class="venue-card" aria-label="Datos del evento">
+        <span class="venue-label">Dónde y cuándo</span>
+        <strong id="venueName">Salón de Actos</strong>
+        <p id="venueDetail">Centro Universitario de Mérida · 8 de mayo de 2026</p>
+        <div class="venue-mini-grid">
+          <span><b id="eventDateShort">08/05</b>Día</span>
+          <span><b id="eventRoomShort">1</b>Sala</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="wrap stats" aria-label="Resumen del programa">
+      <article><strong id="daysCount">—</strong><span>días</span></article>
+      <article><strong id="eventsCount">—</strong><span>sesiones / actividades</span></article>
+      <article><strong id="speakersCount">—</strong><span>ponentes</span></article>
+      <article><strong id="roomsCount">—</strong><span>salas</span></article>
+    </section>
+
+    <section class="wrap programme-shell" id="programa">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Horario</p>
+          <h2>Programa de actividades</h2>
+        </div>
+        <p id="resultCount" class="result-count">Cargando…</p>
+      </div>
+
+      <div class="controls" aria-label="Filtros del programa">
+        <label class="search-field">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Ponente, título, tema…" autocomplete="off" />
+        </label>
+        <label>
+          <span>Tipo</span>
+          <select id="typeFilter"><option value="">Todos los tipos</option></select>
+        </label>
+        <label>
+          <span>Tema</span>
+          <select id="themeFilter"><option value="">Todos los temas</option></select>
+        </label>
+        <label>
+          <span>Sala</span>
+          <select id="roomFilter"><option value="">Todas las salas</option></select>
+        </label>
+        <button id="compactToggle" type="button" aria-pressed="false">Modo compacto</button>
+        <button id="resetFilters" type="button">Reset filtros</button>
+      </div>
+
+      <div id="activeFilters" class="active-filters" aria-live="polite"></div>
+      <div id="scheduleRoot" class="schedule-root" aria-live="polite"></div>
+    </section>
+
+    <section class="wrap edit-card" id="como-editar">
+      <div>
+        <p class="eyebrow">CMS ligero</p>
+        <h2>Editar sin tocar código</h2>
+        <p>
+          La web puede leer el horario desde un CSV local o desde un Google Sheet publicado como CSV.
+          Así, quien organice el workshop solo cambia filas en una hoja de cálculo y la web se actualiza al recargar.
+        </p>
+      </div>
+      <div class="edit-steps">
+        <span>1. Edita la hoja con columnas sencillas.</span>
+        <span>2. Publica como CSV.</span>
+        <span>3. Pega la URL en <code>assets/config.js</code>.</span>
+      </div>
+      <a id="editDataLink" class="button primary hidden" href="#">Abrir hoja de edición</a>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span id="generatedText">Programa cargado desde datos editables.</span>
+    <span>Última actualización visible: <time id="lastUpdated">—</time></span>
+  </footer>
+
+  <template id="emptyTemplate">
+    <div class="empty-state">
+      <strong>No hay sesiones que coincidan con esos filtros.</strong>
+      <p>Prueba a limpiar la búsqueda o cambiar los filtros.</p>
+    </div>
+  </template>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
